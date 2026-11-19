@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'fr' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }}</title>
+<meta name="description" content="Pellicule — lecteur vidéo pour Jellyfin et NAS sur iPhone, iPad, Apple TV et Mac.">
+<link rel="icon" href="{{ '/assets/icon.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/icon.png' | relative_url }}">
+<style>
+  :root { color-scheme: light dark; --bg: #faf7f2; --fg: #1d1a16; --muted: #6b6359; --line: #e6dfd4; --accent: #b86e0a; --card: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #121110; --fg: #f1ece4; --muted: #a39a8e; --line: #2b2825; --accent: #ffb04a; --card: #1a1917; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif; -webkit-text-size-adjust: 100%; }
+  header, main, footer { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  header { display: flex; align-items: center; gap: 14px; padding-top: 32px; padding-bottom: 8px; flex-wrap: wrap; }
+  header a.brand { display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; font: 700 22px/1 ui-rounded, "SF Pro Rounded", -apple-system, sans-serif; }
+  header img { width: 44px; height: 44px; border-radius: 10px; }
+  nav { margin-left: auto; display: flex; gap: 16px; font-size: 15px; }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover, nav a[aria-current] { color: var(--fg); }
+  main { padding-top: 8px; padding-bottom: 48px; }
+  h1 { font-size: 34px; line-height: 1.15; letter-spacing: -0.02em; margin: 28px 0 12px; }
+  h2 { font-size: 22px; margin: 36px 0 8px; padding-top: 20px; border-top: 1px solid var(--line); }
+  h3 { font-size: 18px; margin: 24px 0 6px; }
+  a { color: var(--accent); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0 0; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 6px 0; }
+  code { font: 15px ui-monospace, "SF Mono", Menlo, monospace; background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 1px 5px; overflow-wrap: anywhere; }
+  em { color: var(--muted); }
+  footer { color: var(--muted); font-size: 14px; padding-bottom: 40px; }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="{{ '/' | relative_url }}"><img src="{{ '/assets/icon.png' | relative_url }}" alt="">Pellicule</a>
+  <nav>
+    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Aide · Support</a>
+    <a href="{{ '/confidentialite/' | relative_url }}"{% if page.url == '/confidentialite/' %} aria-current="page"{% endif %}>Confidentialité</a>
+    <a href="{{ '/privacy/' | relative_url }}"{% if page.url == '/privacy/' %} aria-current="page"{% endif %}>Privacy</a>
+  </nav>
+</header>
+<main>
+{{ content }}
+</main>
+<footer>© {{ site.time | date: '%Y' }} Florian Simon · <a href="mailto:florian.simon@skolln.com">florian.simon@skolln.com</a></footer>
+</body>
+</html>
